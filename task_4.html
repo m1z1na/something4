@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet"  href="style2.css">
+</head>
+<body>
+<!-- Добавляем блок "notation" в которм будет отображена нотация -->		
+	<div class="notation">
+		<div class="tableA">
+	<div class="tableA-row"> 		        
+        <div class="tableA-cell">A</div>
+        <div class="tableA-cell">B</div>
+        <div class="tableA-cell">C</div>
+        <div class="tableA-cell">D</div>
+        <div class="tableA-cell">E</div>
+        <div class="tableA-cell">F</div>
+        <div class="tableA-cell">G</div>
+        <div class="tableA-cell">H</div>        	       
+		</div>
+	</div>  	
+	<div class="tableB">
+	<div class="tableB-row"> 		        
+        <div class="tableB-cell">A</div>
+        <div class="tableB-cell">B</div>
+        <div class="tableB-cell">C</div>
+        <div class="tableB-cell">D</div>
+        <div class="tableB-cell">E</div>
+        <div class="tableB-cell">F</div>
+        <div class="tableB-cell">G</div>
+        <div class="tableB-cell">H</div>        	       
+		</div>
+	</div> 
+	<div class="tableL">		
+		<div class="tableL-row">
+			<div class="tableL-cell"></div>
+		</div>
+		<div class="tableL-row">	
+			<div class="tableL-cell">8</div>
+		</div>
+		<div class="tableL-row">
+			<div class="tableL-cell">7</div>
+		</div>
+		<div class="tableL-row">
+			<div class="tableL-cell">6</div>
+		</div>
+		<div class="tableL-row">
+			<div class="tableL-cell">5</div>
+		</div>
+		<div class="tableL-row">
+			<div class="tableL-cell">4</div>
+		</div>
+		<div class="tableL-row">
+			<div class="tableL-cell">3</div>
+		</div>
+		<div class="tableL-row">
+			<div class="tableL-cell">2</div>
+		</div>
+		<div class="tableL-row">
+			<div class="tableL-cell">1</div>
+		</div>
+		<div class="tableL-row">
+			<div class="tableL-cell"></div>
+		</div>
+	</div>
+
+	<div class="tableR">		
+		<div class="tableR-row">
+			<div class="tableR-cell"></div>
+		</div>
+		<div class="tableR-row">	
+			<div class="tableR-cell">8</div>
+		</div>
+		<div class="tableR-row">
+			<div class="tableR-cell">7</div>
+		</div>
+		<div class="tableR-row">
+			<div class="tableR-cell">6</div>
+		</div>
+		<div class="tableR-row">
+			<div class="tableR-cell">5</div>
+		</div>
+		<div class="tableR-row">
+			<div class="tableR-cell">4</div>
+		</div>
+		<div class="tableR-row">
+			<div class="tableR-cell">3</div>
+		</div>
+		<div class="tableR-row">
+			<div class="tableR-cell">2</div>
+		</div>
+		<div class="tableR-row">
+			<div class="tableR-cell">1</div>
+		</div>
+		<div class="tableR-row">
+			<div class="tableR-cell"></div>
+		</div>
+	</div>
+
+			<div class="main-block">
+			     </div>
+			   </div>
+			
+
+
+	<script >
+setTimeout(function(){
+   window.location.reload(1);
+}, 5000);
+	function drawChess() {
+        let mainBlock = document.querySelector(".main-block");
+        let block;
+        let flag = true;
+		
+        let figure = {
+                0 : ['-263px -19px', '-484px -22px', '-372px -17px', '-150px -16px', '-150px -16px', '-372px -17px', '-484px -22px','-263px -19px'],
+                1 : ['76px 1px', '76px 1px', '76px 1px', '76px 1px', '76px 1px', '76px 1px', '76px 1px', '76px 1px'],
+                6 : ['-572px -94px', '-572px -94px', '-572px -94px', '-572px -94px', '-572px -94px', '-572px -94px', '-572px -94px', '-572px -94px'],
+                7 : ['-243px -96px', '-484px -116px', '-372px -116px', '-150px -116px', '-150px -116px', '-372px -116px', '-484px -116px', '-243px -96px'],
+        };
+			var k=0;	
+			for(let i = 0; i < 8; i++) {
+                for(let j = 0; j < 8; j++) {
+                        if(j == 0) flag = !flag;
+	
+                        block = document.createElement("div");
+						block.setAttribute("id", k++);
+						
+                        if(flag) block.className = "block black";
+                            else block.className = "block white";
+
+                        if(figure[i] !== undefined && figure[i][j] !== undefined) {
+                                block.style.backgroundImage = 'url(https://www.iconspng.com/uploads/chess-symbols-set-/chess-symbols-set-.png)';
+                                block.style.backgroundPosition = figure[i][j];
+                        }
+
+                        mainBlock.appendChild(block);
+                        flag = !flag;
+                }
+	
+        }
+				
+
+		
+		
+			
+
+}
+	
+drawChess();
+
+
+
+	
+	window.onclick = e => {
+
+	var v = Number(e.target.id);
+	document.getElementById(v).onclick = function() {
+	
+
+	alert(v); 
+	document.getElementById(v).classList.add('blue');
+    document.getElementById(v+10).classList.add('green');
+	document.getElementById(+v+17).classList.add('green');
+	document.getElementById(v-10).classList.add('green');
+	document.getElementById(v-6).classList.add('green');
+	document.getElementById(v+6).classList.add('green');
+	document.getElementById(v+15).classList.add('green');
+	document.getElementById(v-15).classList.add('green');
+	document.getElementById(+v-17).classList.add('green');
+}
+} 
+
+
+	
+	</script>
+</body>
+</html
